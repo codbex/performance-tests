@@ -3,12 +3,11 @@
 
 import http from 'k6/http';
 import { Options } from 'k6/options';
+import encoding from 'k6/encoding';
 // @ts-ignore
 import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/2.4.0/dist/bundle.js';
 // @ts-ignore
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
-import encoding from 'k6/encoding';
-// @ts-ignore
 
 const options: Options = {
     scenarios: {
@@ -70,11 +69,19 @@ const setup = () => {
 };
 
 const performanceTest = (authorizationHeader: string) => {
-    // http.get(`${__ENV.APP_HOST}/services/ts/application/hello-world.ts`, {
-    // http.get(`${__ENV.APP_HOST}/services/js/application/hello-world-mjs.mjs`, {
-    // http.get(`${__ENV.APP_HOST}/services/js/application/hello-world-js.js`, {
-    // http.get(`${__ENV.APP_HOST}/services/ide/workspaces/workspace`, {
-    http.get(`${__ENV.APP_HOST}/actuator/health`, {
+    http.get(`${__ENV.APP_HOST}/services/ts/application/hello-world.ts`, {
+        headers: {
+            Authorization: authorizationHeader,
+        }
+    });
+
+    http.get(`${__ENV.APP_HOST}/services/js/application/hello-world-mjs.mjs`, {
+        headers: {
+            Authorization: authorizationHeader,
+        }
+    });
+
+    http.get(`${__ENV.APP_HOST}/services/js/application/hello-world-js.js`, {
         headers: {
             Authorization: authorizationHeader,
         }
