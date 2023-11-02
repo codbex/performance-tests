@@ -24,7 +24,7 @@ jobs:
             - name: Run Performance Tests
               uses: grafana/k6-action@v0.3.0
               with:
-                  filename: packages/performance-tests/build/hello-world.js
+                  filename: performance-tests/build/hello-world.js
                   flags: --include-system-env-vars
                   cloud: true
                   token: ${{ secrets.K6_CLOUD_API_TOKEN }}
