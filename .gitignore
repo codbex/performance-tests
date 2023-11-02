@@ -1,0 +1,14 @@
+# Folders
+.vscode/
+.idea/
+node_modules/
+build/
+
+# Files
+.DS_Store
+!jest.config.js
+*.d.ts
+.npmrc
+
+performance-tests/summary.html
+performance-tests/summary.json
