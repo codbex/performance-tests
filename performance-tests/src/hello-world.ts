@@ -69,7 +69,7 @@ const setup = () => {
 };
 
 const performanceTest = (authorizationHeader: string) => {
-    http.get(`${__ENV.APP_HOST}/services/ts/application/hello-world.ts`, {
+    http.get(`${__ENV.APP_HOST}/services/ts/application/hello-world-ts.ts`, {
         headers: {
             Authorization: authorizationHeader,
         }

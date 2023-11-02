@@ -31,4 +31,4 @@ jobs:
               env:
                   APP_HOST: ${{ vars.APP_HOST }}
                   APP_AUTH_BASIC_USERNAME: ${{ secrets.APP_AUTH_BASIC_USERNAME }}
-                  APP_AUTH_BASIC_PASSWORD: ${{ vars.APP_AUTH_BASIC_PASSWORD }}
+                  APP_AUTH_BASIC_PASSWORD: ${{ secrets.APP_AUTH_BASIC_PASSWORD }}
